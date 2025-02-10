@@ -53,8 +53,8 @@ int ans2[9][9] = { // 答案 2
 
 bool editable[9][9];
 
-int cur_r = 0, cur_c = 0;
-int changeN;   //第幾橫排 直排 的光標位置 
+int cur_r = 0, cur_c = 0;//第幾橫排 直排 的光標位置
+int changeN;
 
 bool is_invalid_horizontal(int a) //is_invalid_horizontal
 {
@@ -228,17 +228,17 @@ void move_cursor(char c) //move_cursor
     int CUR_R=cur_r,CUR_C=cur_c;//光標原位置 
     if((c=='w'||c=='W')&&cur_r>0) {
 	    cur_r--;//先移動
-	   	while(!editable[cur_r][cur_c]){ 	//當移動後的光標為不可編輯之格子 
-	   		if(cur_r<1){				 		//如果光標再移動一次會碰到邊界 
-	   			cur_r=CUR_R;			 		//則退回原位
+	   	while(!editable[cur_r][cur_c]){//當移動後的光標為不可編輯之格子 
+	   		if(cur_r<1){//如果光標再移動一次會碰到邊界 
+	   			cur_r=CUR_R;//則退回原位
 	   			break;
 			   }
-			else cur_r--;					//如果光標再移動不會碰到邊界 即繼續移動 
+			else cur_r--;//如果光標再移動不會碰到邊界 即繼續移動 
 	   }
 	   
 	}
 	
-    else if((c=='s'||c=='S')&&cur_r<8) {	//同上 
+    else if((c=='s'||c=='S')&&cur_r<8) {//同上 
 	   cur_r++;
 	   while(!editable[cur_r][cur_c]){
 	   		if(cur_r>7){
@@ -249,7 +249,7 @@ void move_cursor(char c) //move_cursor
 	}
 }
 	
-    else if((c=='a'||c=='A')&&cur_c>0) {	//同上 
+    else if((c=='a'||c=='A')&&cur_c>0) {//同上 
 	   cur_c--;
 	   while(!editable[cur_r][cur_c]){
 	   		if(cur_c<1){
@@ -260,7 +260,7 @@ void move_cursor(char c) //move_cursor
 	}
 }
 	
-    else if((c=='d'||c=='D')&&cur_c<8) {	//同上 
+    else if((c=='d'||c=='D')&&cur_c<8) {//同上 
 	  cur_c++;
 	  while(!editable[cur_r][cur_c]){
 	   		if(cur_c>7){
