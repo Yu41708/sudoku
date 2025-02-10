@@ -153,7 +153,7 @@ bool is_invalid_block(int a,int b) //is_invalid_block
 	num[7] = board[A2][B1];
 	num[8] = board[A2][B2];
 	
-	for(int c = 0; c < 9; c++){//看是否有數字重複
+	for(int c = 0; c < 9; c++){//除了0 一一比較數字是否重複
 	    for(int d = c + 1; d < 9; d++){
 	        if(num[c] != 0 && (num[c] == num[d])){
 	            e++;
@@ -206,7 +206,7 @@ bool is_done_block(int a,int b) //is_done_block
 	num[7] = board[A2][B1];
 	num[8] = board[A2][B2];
 	
-	for(int c = 0; c < 9; c++){//看數字是否都不一樣
+	for(int c = 0; c < 9; c++){//一一比較數字是否都不一樣 且沒有0
 	    for(int d = c + 1; d < 9; d++){
 	        if(num[c] != 0 && (num[c] != num[d]) && num[8]!=0){
 	            e++;
