@@ -37,11 +37,9 @@ bool is_done_horizontal(int a){
     }
     if(e==6) return true;
     else return false;
-    
 }
 
 bool is_invalid_vertical(int b){
-    
     int e = 0;
     for(int c = 0; c < 4; c++){
         for(int d = c + 1; d < 4; d++){
@@ -65,18 +63,9 @@ bool is_done_vertical(int b){
     }
     if(e==6) return true;
     else return false;
-    
-    if( board[0][b]!=0 && board[1][b]!=0 && board[2][b]!=0 && board[3][b]!=0 &&
-	board[0][b]!=board[1][b] && board[0][b]!=board[2][b] && board[0][b]!=board[3][b] &&
-	board[1][b]!=board[2][b] && board[1][b]!=board[3][b] &&
-	board[2][b]!=board[3][b]) return true;
-	else return false;
-	
-    
 }
 
 bool is_invalid_block(int a,int b){
-    
     int A, B;
     int e = 0;
     int num[4];
@@ -101,13 +90,9 @@ bool is_invalid_block(int a,int b){
 	
 	if(e>0) return true;
 	else return false;
-	
-
-	
 }
 
 bool is_done_block(int a,int b){
-    
     int A, B;
     int e = 0;
     int num[4];
@@ -132,9 +117,6 @@ bool is_done_block(int a,int b){
 	
 	if(e==6) return true;
 	else return false;
-	
-	
-
 }
 
 void fill_number(int c){
@@ -144,47 +126,46 @@ void fill_number(int c){
 void move_cursor(char c){
     int CUR_R=cur_r,CUR_C=cur_c; 		 
     if((c=='w'||c=='W')&&cur_r>0){
-	    cur_r--;						
-	   	while(!editable[cur_r][cur_c]){ 	 
-	   		if(cur_r<1){				 		
-	   			cur_r=CUR_R;			 		
-	   			break;
-			   }
-			else cur_r--;					
-	   }
-	   
+	cur_r--;						
+	while(!editable[cur_r][cur_c]){ 	 
+	   if(cur_r<1){				 		
+	   	cur_r=CUR_R;			 		
+	   	break;
+		}
+	else cur_r--;					
 	}
+}
 	
     else if((c=='s'||c=='S')&&cur_r<3){	 
 	   cur_r++;
 	   while(!editable[cur_r][cur_c]){
-	   		if(cur_r>2){
-	   			cur_r=CUR_R;
-	   			break;
-			   }
-			else cur_r++;
+	   	if(cur_r>2){
+	   		cur_r=CUR_R;
+	   		break;
+		}
+		else cur_r++;
 	}
 }
 	
     else if((c=='a'||c=='A')&&cur_c>0){	
 	   cur_c--;
 	   while(!editable[cur_r][cur_c]){
-	   		if(cur_c<1){
-	   			cur_c=CUR_C;
-	   			break;
-			   }
-			else cur_c--;
+	   	if(cur_c<1){
+	   		cur_c=CUR_C;
+	   		break;
+		}
+		else cur_c--;
 	}
 }
 	
     else if((c=='d'||c=='D')&&cur_c<3){ 
 	  cur_c++;
 	  while(!editable[cur_r][cur_c]){
-	   		if(cur_c>2){
-	   			cur_c=CUR_C;
-	   			break;
-			   }
-			else cur_c++;
+	   	if(cur_c>2){
+	   		cur_c=CUR_C;
+	   		break;
+		}
+		else cur_c++;
 	}
 
 }
@@ -192,12 +173,12 @@ void move_cursor(char c){
 
 bool is_invalid(int i, int j){
 	if (is_invalid_horizontal(i)||is_invalid_vertical(j)||is_invalid_block(i,j)) return true;
-    return false;
+    	return false;
 }
 
 bool is_done(int i, int j){
-    if (is_done_horizontal(i)||is_done_vertical(j)||is_done_block(i,j)) return true;
-    return false;
+	if (is_done_horizontal(i)||is_done_vertical(j)||is_done_block(i,j)) return true;
+	return false;
 }
 
 bool check_win(){
