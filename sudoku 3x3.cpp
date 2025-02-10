@@ -343,7 +343,6 @@ void print_board()
     cout << get_styled_text("    1-4: ", "B") << "fill in number" << endl;
     cout << get_styled_text("      0: ", "B") << "clear the cell" << endl;
     cout << get_styled_text("      Q: ", "B") << "quit" << endl;
-    cout << get_styled_text("      G: ", "B") << "check the answer" << endl;
     cout << endl;
 
     // Iterate through and print each cell.輸出遊戲頁面 
@@ -422,41 +421,30 @@ void initialize()
     print_board();
 }
 
-
-
-
-
-int main()
-{
+int main(){
     char c;
     bool action_ok;
 
-	changeN=change();//隨機出題
+    changeN=change();//隨機出題
 	
     initialize();
-    
-    
-    while (cin >> c)
-    {
+	
+    while (cin >> c){
         action_ok = false;
-        if (is_moving_action(c))
-        {
-            
-			action_ok = true;
-            move_cursor(c);
+        if (is_moving_action(c)){
+		action_ok = true;
+        	move_cursor(c);
         }
 
-        if (is_filling_action(c))
-        {
-			action_ok = true;
-            fill_number(c);
-            
+        if (is_filling_action(c)){
+		action_ok = true;
+        	fill_number(c);
         }
 
         if (c == 'Q' || c == 'q'){
         	action_ok = true;
         	
-        	if(changeN==1){//看是哪個題目 輸出他的解答
+        if(changeN==1){//看是哪個題目 輸出他的解答
 		for(int i=0;i<9;i++){
 			for(int j=0;j<9;j++){
 				board[i][j]=ans1[i][j];
@@ -476,37 +464,25 @@ int main()
             cout << "-------------------------------" << endl;
 
         cout << "|";
-        for (int j = 0; j < 9; ++j)
-        {
+        for (int j = 0; j < 9; ++j){
             string style = "";
             cout << get_styled_text(" " + to_string(board[i][j]) + " ", style);
-
             if ((j + 1) % 3 == 0)
                 cout << "|";
-        }
+        		}
         cout << endl;
-    }
-        	
-        	
-			break;
-		}
-            
-		
-		if (c == 'G' || c == 'g'){
-			
-			action_ok = true;
-		}
-		
+    		}
+	break;
+	}
+	
         print_board();
 
-        if (check_win())
-        {
+        if (check_win()){
             cout << "YOU WIN!" << endl;
             break;
         }
 
-        if (!action_ok)
-            cout << get_styled_text("!!! Invalid action !!!", "R");
+        if (!action_ok) cout << get_styled_text("!!! Invalid action !!!", "R");
     }
 
     return 0;
