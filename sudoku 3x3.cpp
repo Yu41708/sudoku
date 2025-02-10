@@ -73,7 +73,7 @@ bool is_invalid_horizontal(int a) //is_invalid_horizontal
 bool is_done_horizontal(int a) //is_done_horizontal
 {
     int e = 0;//正確次數
-    for(int c = 0; c < 9; c++){//一一比較數字是否都不一樣
+    for(int c = 0; c < 9; c++){//一一比較數字是否都不一樣 且沒有0
         for(int d = c + 1; d < 9; d++){
             if(board[a][c]!=0 && (board[a][c]!=board[a][d])&&board[a][8]!=0){
                 e++;
